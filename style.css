@@ -1,294 +1,619 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* --- RESET & GLOBAL STYLE --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-    background:#eff6ff;
-    color:#333;
+body {
+    /* Menggunakan gradasi warna yang lebih lembut dan elegan */
+    background: linear-gradient(135deg, #f0f7ff 0%, #e0e7ff 100%);
+    color: #1e293b;
+    overflow-x: hidden;
 }
 
-header{
-    position:fixed;
-    width:100%;
-    top:0;
-    background:#2563eb;
-    z-index:1000;
+/* --- HEADER & NAVIGASI --- */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(37, 99, 235, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 1000;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 8%;
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 8%;
 }
 
-.logo{
-    color:white;
-    font-size:30px;
+.logo {
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
-.logo span{
-    color:#bfdbfe;
+.logo span {
+    color: #93c5fd;
 }
 
-.nav-links{
-    display:flex;
-    list-style:none;
+.nav-links {
+    display: flex;
+    list-style: none;
 }
 
-.nav-links li{
-    margin-left:25px;
+.nav-links li {
+    margin-left: 30px;
 }
 
-.nav-links a{
-    text-decoration:none;
-    color:white;
-    font-weight:500;
-    transition:.3s;
+.nav-links a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-.nav-links a:hover{
-    color:#bfdbfe;
+/* Efek garis bawah saat navigasi di-hover */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #bfdbfe;
+    transition: width 0.3s ease;
 }
 
-.hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:70px;
-    padding:120px 10%;
+.nav-links a:hover::after {
+    width: 100%;
 }
 
-.hero-text{
-    max-width:500px;
+.nav-links a:hover {
+    color: #ffffff;
 }
 
-.hero-text h1{
-    font-size:55px;
-    margin-bottom:10px;
+/* --- HERO SECTION --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    padding: 120px 10%;
 }
 
-.hero-text span{
-    color:#2563eb;
+.hero-text {
+    max-width: 550px;
 }
 
-.hero-text h3{
-    color:#2563eb;
-    margin-bottom:15px;
+/* Badge sapaan */
+.hero-text .badge {
+    display: inline-block;
+    padding: 8px 18px;
+    background: rgba(37, 99, 235, 0.08);
+    color: #2563eb;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
 }
 
-.hero-text p{
-    margin-bottom:25px;
-    line-height:1.8;
+.hero-text h1 {
+    font-size: 55px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.2;
 }
 
-.hero-text button{
-    padding:14px 28px;
-    border:none;
-    border-radius:30px;
-    background:#2563eb;
-    color:white;
-    cursor:pointer;
-    font-size:16px;
-    transition:.3s;
+/* Efek warna gradasi pada nama */
+.hero-text h1 span {
+    background: linear-gradient(135deg, #2563eb, #60a5fa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.hero-text button:hover{
-    background:#1d4ed8;
+.hero-text h3 {
+    color: #475569;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 24px;
 }
 
-.hero-image img{
-    width:320px;
-    animation:float 3s ease-in-out infinite;
+.hero-text p {
+    margin-bottom: 35px;
+    line-height: 1.8;
+    color: #64748b;
+    font-size: 17px;
 }
 
-@keyframes float{
-    0%{
-        transform:translateY(0);
-    }
-    50%{
-        transform:translateY(-15px);
-    }
-    100%{
-        transform:translateY(0);
-    }
+/* Penataan 2 Tombol */
+.hero-buttons {
+    display: flex;
+    gap: 15px;
 }
 
-section{
-    padding:90px 10%;
-    text-align:center;
+.btn-primary {
+    padding: 15px 32px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s ease;
 }
 
-section h2{
-    font-size:36px;
-    margin-bottom:25px;
-    color:#2563eb;
+.btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 25px rgba(37, 99, 235, 0.4);
 }
 
-.about p{
-    max-width:800px;
-    margin:auto;
-    line-height:1.8;
+.btn-outline {
+    padding: 13px 32px;
+    border: 2px solid #2563eb;
+    border-radius: 30px;
+    background: transparent;
+    color: #2563eb;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
 }
 
-.skill-container{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:20px;
+.btn-outline:hover {
+    background: rgba(37, 99, 235, 0.05);
+    transform: translateY(-4px);
 }
 
-.skill-card{
-    width:180px;
-    padding:30px;
-    background:white;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    transition:.3s;
+/* Bingkai Kaca untuk Gambar */
+.hero-image {
+    position: relative;
 }
 
-.skill-card:hover{
-    background:#2563eb;
-    color:white;
-    transform:translateY(-10px);
+.hero-image::before {
+    content: '';
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background: #93c5fd;
+    border-radius: 50%;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(50px);
+    opacity: 0.6;
 }
 
-.project-container{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:25px;
+/* Frame kaca pembungkus gambar */
+.hero-image .img-box {
+    position: relative;
+    z-index: 1;
+    padding: 15px; /* Jarak bingkai ke foto saya sesuaikan sedikit */
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    border: 1px solid rgba(255,255,255,0.6);
 }
 
-.project-card{
-    width:320px;
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    transition:.3s;
+/* Mengatur foto kotak menjadi bulat sempurna */
+.hero-image img {
+    width: 280px;
+    height: 280px; /* Menyamakan tinggi dan lebar agar proporsional */
+    object-fit: cover; /* Memastikan foto terpotong rapi tanpa penyok/gepeng */
+    border-radius: 50%; /* Membuat foto menjadi bulat sempurna */
+    animation: float 4s ease-in-out infinite;
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.1));
 }
 
-.project-card:hover{
-    transform:translateY(-10px);
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
 }
 
-.project-card h3{
-    margin-bottom:10px;
-    color:#2563eb;
-}
-
-.contact form{
-    max-width:600px;
-    margin:auto;
-}
-
-.tasks {
-    padding: 80px 10%;
+/* --- UMUM UNTUK SECTION --- */
+section {
+    padding: 100px 10%;
     text-align: center;
 }
 
-.task-container {
+section h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    color: #1e293b;
+    position: relative;
+    display: inline-block;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 4px;
+    background: #2563eb;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.section-desc {
+    max-width: 600px;
+    margin: -15px auto 30px;
+    color: #64748b;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.about p {
+    max-width: 800px;
+    margin: auto;
+    line-height: 1.9;
+    color: #475569;
+    font-size: 17px;
+}
+
+/* --- SKILL SECTION --- */
+.skill-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.skill-card {
+    width: 160px;
+    padding: 25px 15px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+    cursor: default;
+}
+
+.skill-card h3 {
+    color: #334155;
+    font-weight: 600;
+}
+
+.skill-card:hover {
+    background: #2563eb;
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(37, 99, 235, 0.2);
+}
+
+.skill-card:hover h3 {
+    color: white;
+}
+
+/* --- PROJECT & TASK SECTION --- */
+.project-container, .task-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.project-card, .task-card {
+    width: 320px;
+    background: white;
+    padding: 35px 25px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0,0,0,0.02);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover, .task-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.08);
+}
+
+.project-card h3, .task-card h3 {
+    margin-bottom: 15px;
+    color: #2563eb;
+    font-size: 20px;
+}
+
+.project-card p, .task-card p {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.task-card a {
+    display: inline-block;
+    text-decoration: none;
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid #bfdbfe;
+}
+
+.task-card a:hover {
+    background: #2563eb;
+    color: white;
+}
+
+/* --- EXPERIENCE & ORGANISASI --- */
+.experience-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.experience-card {
+    width: 340px;
+    background: white;
+    padding: 35px 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0,0,0,0.02);
+    transition: all 0.4s ease;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.experience-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #2563eb, #93c5fd);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.experience-card:hover::before {
+    transform: scaleX(1);
+}
+
+.experience-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.08);
+}
+
+.exp-icon {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.experience-card h3 {
+    color: #1e293b;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.experience-card h4 {
+    color: #2563eb;
+    font-size: 14px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.experience-card p {
+    color: #475569;
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+/* --- KONTAK DUA KOLOM --- */
+.contact-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 40px auto 0;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.info-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 15px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    background: white;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.1);
+    border-color: #bfdbfe;
+}
+
+.info-icon {
+    font-size: 28px;
+    width: 60px;
+    height: 60px;
+    background: #eff6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.info-card h4 {
+    color: #1e293b;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.info-card p {
+    color: #64748b;
+    font-size: 15px;
+}
+
+.contact-form-container {
+    flex: 1.2;
+    min-width: 320px;
+}
+
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#contactForm input,
+#contactForm textarea {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid #e2e8f0;
+    background: #f8fafc;
+    border-radius: 12px;
+    outline: none;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    color: #334155;
+    font-family: 'Poppins', sans-serif;
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+    border-color: #2563eb;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.btn-submit {
+    padding: 16px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
+    transition: all 0.3s ease;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 30px;
+    align-items: center;
+    gap: 10px;
 }
 
-.task-card {
-    background: #fff;
-    padding: 20px;
-    width: 280px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: 0.3s;
+.btn-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(37, 99, 235, 0.35);
 }
 
-.task-card:hover {
-    transform: translateY(-8px);
-}
-.tasks {
-    padding: 80px 10%;
+/* --- FOOTER --- */
+footer {
+    background: #0f172a;
+    color: #94a3b8;
     text-align: center;
+    padding: 25px;
+    font-size: 14px;
 }
 
-.task-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
-
-.task-card {
-    background: #fff;
-    padding: 20px;
-    width: 280px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: 0.3s;
-}
-
-.task-card:hover {
-    transform: translateY(-8px);
-}
-.contact input,
-.contact textarea{
-    width:100%;
-    padding:15px;
-    margin:10px 0;
-    border:2px solid #93c5fd;
-    border-radius:10px;
-    outline:none;
-}
-
-.contact button{
-    width:100%;
-    padding:15px;
-    border:none;
-    border-radius:10px;
-    background:#2563eb;
-    color:white;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.contact button:hover{
-    background:#1d4ed8;
-}
-
-footer{
-    background:#2563eb;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
-
-@media(max-width:768px){
-
-    .hero{
-        flex-direction:column-reverse;
-        text-align:center;
+/* --- RESPONSIVE LAYOUT (HP & TABLET) --- */
+@media(max-width: 768px) {
+    header {
+        padding: 15px 5%;
     }
 
-    .hero-text h1{
-        font-size:40px;
+    .nav-links {
+        display: none; /* Menyembunyikan menu di HP, bisa diganti hamburger menu ke depannya */
     }
 
-    .nav-links{
-        display:none;
+    .hero {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 140px 5% 60px;
+        gap: 40px;
     }
 
-    .hero-image img{
-        width:250px;
+    .hero-text h1 {
+        font-size: 40px;
+    }
+    
+    .hero-text p {
+        font-size: 15px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero-image .img-box {
+        padding: 10px;
+    }
+
+    .hero-image img {
+        width: 240px;
+    }
+    
+    .hero-image::before {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .contact-wrapper {
+        flex-direction: column;
+        padding: 25px;
     }
 }
